@@ -24,13 +24,8 @@ struct ContentView: View {
             
             VStack {
                 TimerButtonView(timer: timer)
-                //Spacer()
-//                Button(action: {
-//                    self.user.name  = ""
-//                    self.user.isRegister = false
-//                }) {
-//                    Text("Log Out")
-//                }
+                LogoutButtonView(user: user)
+                .offset(x: 0, y: 200)
             }
             Spacer()
         }
@@ -64,4 +59,28 @@ struct TimerButtonView: View {
             )
         }
     }
+}
+
+struct LogoutButtonView: View {
+    @ObservedObject var user: UserManager
+    
+    var body: some View {
+        Button(action: {
+            self.user.name  = ""
+            self.user.isRegister = false
+        }) {
+            Text("Log Out")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color.white)
+        }
+        .frame(width: 200, height: 60)
+        .background(Color.blue)
+        .cornerRadius(20)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .stroke(Color.black, lineWidth: 4)
+        )
+    }
+    
 }

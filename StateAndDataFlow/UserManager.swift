@@ -25,11 +25,7 @@ final class UserManager: ObservableObject {
     
     init() {
         self.isRegister = UserDefaults.standard.object(forKey: "isRegister") as? Bool ?? false
-        self.name = UserDefaults.standard.object(forKey: "name") as? String ?? "default name"
+        self.name = UserDefaults.standard.object(forKey: "name") as? String ?? ""
     }
     
-//    init(name: String) {
-//        self.name = name
-//        self.isRegister = UserDefaults.standard.object(forKey: "isRegister") as? Bool ?? false
-//    }
 }
